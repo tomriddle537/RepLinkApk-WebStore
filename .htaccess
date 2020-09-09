@@ -1,0 +1,39 @@
+# Copyright (C) 2017-2020 tomriddle537
+# RepLink Web Store.
+# https://github.com/tomriddle537/RepLinkApk-WebStore
+# Licensed GPL
+
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^css\/(.*\.(css))$ view/css/$1 [QSA,L]
+RewriteRule ^js\/(.*\.(js))$ view/js/$1 [QSA,L]
+RewriteRule ^images/ico\/(.*\.(ico))$ view/images/ico/$1 [QSA,L]
+RewriteRule ^images\/(.*\.(gif|jpg|png|webp|ico))$ view/images/$1 [QSA,L]
+RewriteRule ^fonts\/(.*\.(otf|eot|svg|ttf|woff|woff2))$ view/fonts/$1 [QSA,L]
+
+RewriteRule ^assets/royalslider/skins/default\/(.*\.(png))$ controller/assets/royalslider/skins/default/$1 [QSA,L]
+RewriteRule ^assets/royalslider/skins/default\/(.*\.(css))$ controller/assets/royalslider/skins/default/$1 [QSA,L]
+RewriteRule ^assets/royalslider\/(.*\.(css))$ controller/assets/royalslider/$1 [QSA,L]
+RewriteRule ^assets/royalslider\/(.*\.(js))$ controller/assets/royalslider/$1 [QSA,L]
+
+RewriteRule ^details/([A-Za-z0-9_]+)/([0-9]+)/([A-Za-z0-9\._]+)$ ?details=true&rep=$1&category=$2&id=$3
+RewriteRule ^details/([A-Za-z0-9_]+)/([A-Za-z0-9\._]+)$ ?details=true&rep=$1&id=$2
+RewriteRule ^details/([A-Za-z0-9_]+)/([0-9]+)/([A-Za-z0-9\._]+)/nomaterial$ ?details=true&rep=$1&category=$2&id=$3&nomaterial=true
+RewriteRule ^details/([A-Za-z0-9_]+)/([A-Za-z0-9\._]+)/nomaterial$ ?details=true&rep=$1&id=$2&nomaterial=true
+
+
+
+RewriteRule ^([A-Za-z0-9_]+)$ ?rep=$1
+RewriteRule ^([A-Za-z0-9_]+)/$ ?rep=$1
+RewriteCond %{QUERY_STRING} ^q=(.*)$
+RewriteRule ^([A-Za-z0-9_]+)/q/?$ ?rep=$1&q=%1
+
+RewriteRule ^([A-Za-z0-9_]+)/([0-9]+)$ ?rep=$1&category=$2
+RewriteRule ^([A-Za-z0-9_]+)/([0-9]+)/([A-Za-z_]+)/([0-9]+)$ ?rep=$1&category=$2&order=$3&page=$4#pages
+RewriteRule ^([A-Za-z0-9_]+)/([0-9]+)/([A-Za-z_]+)$ ?rep=$1&category=$2&order=$3&page=1#pages
+RewriteRule ^([A-Za-z0-9_]+)/([A-Za-z_]+)$ ?rep=$1&order=$2
+RewriteRule ^([A-Za-z0-9_]+)/([A-Za-z_]+)/$ ?rep=$1&order=$2
+RewriteRule ^([A-Za-z0-9_]+)/([A-Za-z_]+)/([0-9]+)$ ?rep=$1&order=$2&page=$3#pages
