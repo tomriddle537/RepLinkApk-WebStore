@@ -1,6 +1,8 @@
 # RepLinkApk WebStore
  Make your own local or online Web Store for Android Apps using [Apache Web Server][xampp-link] on Windows. Easy setup that works with [RepLinkApk Manager][rla-manager] repositories or Original local [F-Droid][f-droid] repositories.
  
+ [![WebStore Basic Tutorial](https://img.youtube.com/vi/qHImm0yUIHY/0.jpg)](https://www.youtube.com/watch?v=qHImm0yUIHY&t=422s "RepLinkApk Web Store Video")
+ 
  [f-droid]: https://f-droid.org/
  [rla-manager]: https://github.com/tomriddle537/RepLinkApk-Manager
  [fossdroid-link]: https://fossdroid.com/
